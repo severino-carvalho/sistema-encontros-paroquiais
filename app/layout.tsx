@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
@@ -15,7 +16,9 @@ type Props = { children: ReactNode }
 export default function RootLayout(props: Props) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{props.children}</body>
+      <body className={clsx(inter.className, 'h-screen w-screen bg-gray-200')}>
+        {props.children}
+      </body>
     </html>
   )
 }

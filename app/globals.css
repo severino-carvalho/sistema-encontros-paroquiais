@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Para navegadores baseados no WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3;
+    border-radius: 999px;
+    transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+/* Estado da barra de rolagem quando o usuário interage diretamente */
+.scroll-hover::-webkit-scrollbar {
+    width: 1px; /* Largura aumentada ao interagir */
+}
+
+.scroll-hover::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+/* Para navegadores Firefox */
+* {
+    scrollbar-width: thin; /* Largura fina inicial */
+    scrollbar-color: #b3b3b3 #f0f0f0;
+}
+
+/* Aumentar a largura ao passar o mouse sobre a barra (em navegadores Firefox) */
+.scroll-hover * {
+    scrollbar-width: auto; /* Largura maior ao passar o mouse */
+}
