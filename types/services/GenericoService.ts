@@ -1,5 +1,8 @@
-export interface IGenericoService<S, R> {
-  findAll(): Promise<R[]>
+import { FiltroResult } from '@/types/services/FiltroResult'
+import { EntidadeDto } from '@/types/dtos/EntidadeDto'
+
+export interface IGenericoService<S, R extends EntidadeDto> {
+  findAll(): Promise<FiltroResult<R>>
 
   save(data: S): Promise<R>
 

@@ -6,11 +6,11 @@ import { ConfigProvider, Menu } from 'antd'
 type SidebarContentProps = {
   items: SideItemProps[]
   onClick: (e: unknown) => void
-  isExpanded?: boolean
+  isCollapse?: boolean
 }
 
 export function SidebarContent(props: SidebarContentProps) {
-  if (!props.isExpanded) return null
+  if (props.isCollapse) return null
 
   return (
     <ConfigProvider
@@ -18,6 +18,7 @@ export function SidebarContent(props: SidebarContentProps) {
         components: {
           Menu: {
             itemBg: 'bg-transparent',
+            activeBarBorderWidth: 0,
           },
         },
       }}
@@ -27,6 +28,7 @@ export function SidebarContent(props: SidebarContentProps) {
         expandIcon
         items={props.items}
         onClick={props.onClick}
+        className="bg-white"
       />
     </ConfigProvider>
   )

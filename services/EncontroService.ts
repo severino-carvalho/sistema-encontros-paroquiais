@@ -1,6 +1,6 @@
 import { GenericoService } from '@/services/GenericoService'
-import { EncontroReq, EncontroRes } from '@/types/dtos/services/encontro'
+import { EncontroReqDto, EncontroResDto } from '@/types/dtos/services/encontro'
 
-class EncontroService extends GenericoService<EncontroReq, EncontroRes> {}
+class EncontroService extends GenericoService<EncontroReqDto, EncontroResDto> {}
 
 export const encontroService = new EncontroService('')

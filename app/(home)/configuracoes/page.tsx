@@ -1,14 +1,20 @@
-import Link from 'next/link'
 import { RotasEnum } from '@/types/enums/RotasEnum'
+import { Container } from '@/components/atomos/Container'
+import { ConfiguracoesMenu } from '@/components/moleculas/ConfiguracoesMenu/ConfiguracoesMenu'
+import { ItemMenuProps } from '@/types/components/ConfigMenuProps'
+
+const OpcoesMenu: ItemMenuProps[] = [
+  { label: 'Usuário', href: RotasEnum.CONFIGURACOES_USUARIO },
+  { label: 'Encontro', href: RotasEnum.CONFIGURACOES_ENCONTRO },
+  { label: 'Pasta', href: RotasEnum.CONFIGURACOES_PASTA },
+]
 
 export default function Page() {
   return (
-    <div>
-      <h1>Configurações</h1>
+    <Container>
+      <h1 className={'text-3xl font-bold text-blue-500'}>Configurações</h1>
 
-      <Link href={RotasEnum.CONFIGURACOES_ENCONTRO} className="text-blue-500">
-        <span>Encontro</span>
-      </Link>
-    </div>
+      <ConfiguracoesMenu opcoes={OpcoesMenu} />
+    </Container>
   )
 }

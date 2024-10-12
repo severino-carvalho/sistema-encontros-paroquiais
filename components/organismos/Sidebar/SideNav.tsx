@@ -11,7 +11,6 @@ import {
   SettingOutlined,
 } from '@ant-design/icons'
 import { SideItemProps } from '@/types/components/Sidebar'
-import { useState } from 'react'
 import clsx from 'clsx'
 
 const sideContentData: SideItemProps[] = [
@@ -82,32 +81,35 @@ const sideContentData: SideItemProps[] = [
   },
 ]
 
-export function Sidebar() {
-  const [isExpanded, setIsExpanded] = useState(true)
+type SideNavProps = {
+  isCollapse?: boolean
+  onCollapse?: () => void
+}
 
+export function SideNav(props: SideNavProps) {
   return (
-    <div
+    <aside
       className={clsx(
-        'flex h-full flex-col justify-between bg-gray-50 shadow-2xl transition-all delay-75 ease-in-out',
-        { 'w-20': !isExpanded },
-        { 'w-80': isExpanded },
+        'flex h-full flex-col justify-between bg-white transition-all duration-500 ease-in-out',
+        { 'w-16': props.isCollapse },
+        { 'w-80': !props.isCollapse },
       )}
     >
       <SidebarHeader
-        titulo={'Gestão Paroquial'}
-        isExpanded={isExpanded}
-        onClick={() => setIsExpanded((prevState) => !prevState)}
+        titulo={'SEP'}
+        isCollapse={props.isCollapse}
+        onClick={props.onCollapse}
       />
 
-      <div className="h-full overflow-y-auto scroll-smooth focus:scroll-auto">
+      <div className="h-full overflow-y-auto scroll-smooth bg-white focus:scroll-auto">
         <SidebarContent
-          isExpanded={isExpanded}
+          isCollapse={props.isCollapse}
           onClick={(e) => console.log(e)}
           items={sideContentData}
         />
       </div>
 
       <SidebarFooter />
-    </div>
+    </aside>
   )
 }

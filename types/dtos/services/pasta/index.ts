@@ -1,2 +1,2 @@
-export * from './PastaReq'
-export * from './PastaRes'
+export * from './PastaReqDto'
+export * from './PastaResDto'

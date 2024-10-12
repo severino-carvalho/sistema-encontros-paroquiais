@@ -1,10 +1,13 @@
 import Link from 'next/link'
+import { Container } from '@/components/atomos/Container'
 
 export default function Home() {
+  console.log(process.cwd())
+
   return (
-    <main className="flex min-h-screen min-w-full flex-col">
-      <header className="flex flex-1 justify-center">
-        <h1 className="text-4xl">Gestão Paroquial</h1>
+    <Container className={''}>
+      <header className="flex justify-center">
+        <h1 className="text-4xl">Sistema de Encontros Paroquiais</h1>
       </header>
 
       <section>
@@ -14,6 +17,6 @@ export default function Home() {
           <span>Configurações</span>
         </Link>
       </section>
-    </main>
+    </Container>
   )
 }

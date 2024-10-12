@@ -1,12 +1,19 @@
+'use client'
+
 import { IChildren } from '@/types/components/IChildren'
-import { Sidebar } from '@/components/organismos/Sidebar/Sidebar'
+import { SideBar } from '@/components/organismos/Sidebar/SideBar'
+import { Contexts } from '@/contexts'
 
-export default function HomeLayout(props: IChildren) {
+export default function HomeLayout(props: Readonly<IChildren>) {
   return (
-    <div className="flex h-full w-full">
-      <Sidebar />
-
-      <div>{props.children}</div>
-    </div>
+    <Contexts>
+      <div className="flex h-full w-full">
+        <SideBar>
+          <main className={'flex h-full w-full flex-col p-10'}>
+            {props.children}
+          </main>
+        </SideBar>
+      </div>
+    </Contexts>
   )
 }

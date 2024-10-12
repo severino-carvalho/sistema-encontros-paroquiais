@@ -1,2 +1,2 @@
-export * from './EncontroReq'
-export * from './EncontroRes'
+export * from './EncontroReqDto'
+export * from './EncontroResDto'
