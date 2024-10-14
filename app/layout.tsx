@@ -1,21 +1,33 @@
+import clsx from 'clsx'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ReactNode } from 'react'
 import './globals.css'
+import { IChildren } from '@/types/components/IChildren'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'App Gestão Paroquial',
-  description: 'Gestão dos encontros paroquiais',
+  title: 'App Sistema de Encontros Paroquiais',
+  description: 'Sistema de Encontros Paroquiais',
+  authors: [
+    { name: 'José Guilherme Costa Câmara' },
+    { name: 'Severino Cavalho da Silva Neto' },
+  ],
+  keywords: [
+    'Sistema',
+    'Encontros',
+    'Paroquiais',
+    'Santo Afonso',
+    'Santo Afonso Maria de Ligório',
+  ],
 }
 
-type Props = { children: ReactNode }
-
-export default function RootLayout(props: Props) {
+export default function RootLayout(props: Readonly<IChildren>) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{props.children}</body>
+      <body className={clsx(inter.className, 'h-screen w-screen bg-gray-100')}>
+        {props.children}
+      </body>
     </html>
   )
 }
